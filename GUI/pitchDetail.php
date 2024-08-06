@@ -71,29 +71,29 @@ $type_note = $pitch_details['type_note'];
                 </div>
                 <div class="pitch-details">
                     <div class="detail-item">
-                        <span class="label">Amount of people:</span>
+                        <span class="label">Số người:</span>
                         <span class="value"><?php echo $volume; ?> people</span>
                     </div>
                     <div class="detail-item">
-                        <span class="label">Price:</span>
+                        <span class="label">Giá sân bóng:</span>
                         <span class="value"><?php echo $price_perhour . 'đ - ' . $price_perpeak . 'đ'; ?></span>
                     </div>
                     <div class="detail-item">
-                        <span class="label">Opening - closing time:</span>
+                        <span class="label">Thời gian mở - đóng:</span>
                         <span class="value"><?php echo $time_open . ' - ' . $time_close; ?></span>
                     </div>
                     <div class="detail-item">
-                        <span class="label">Number of orders:</span>
+                        <span class="label">Số người đã đặt sân</span>
                         <span class="value"><?php echo $times; ?></span>
                     </div>
                     <div class="detail-item">
-                        <span class="label">Describe:</span>
+                        <span class="label">Mô tả:</span>
                         <span class="value"><?php echo $note; ?></span>
                     </div>
                 </div>
                 <div class="action-buttons">
-                    <button class="button primary" onclick="openPopup()">Book now</button>
-                    <button class="button secondary">View ordered yard times</button>
+                    <button class="button primary" onclick="openPopup()">Đặt sân</button>
+                    <button class="button secondary">Quay lại</button>
                 </div>
             </div>
 
@@ -101,31 +101,31 @@ $type_note = $pitch_details['type_note'];
 
         <div id="popup-overlay" class="overlay">
             <div class="popup">
-                <h1>Order</h1>
+                <h1>Thông tin đặt sân</h1>
                 <form action="pitchOrder.php" method="post">
                     <table>
                         <tr>
-                            <td><label for="date">Select date</label></td>
+                            <td><label for="date">Chọn ngày</label></td>
                             <td><input type="date" name="date" value="<?php echo $date_now; ?>"></td>
                         </tr>
                         <tr>
-                            <td><label for="start_time">Select start time</label></td>
+                            <td><label for="start_time">Chọn thời gian bắt đầu</label></td>
                             <td><input type="time" name="start_time" value="07:00" step="3600"></td>
                         </tr>
                         <tr>
-                            <td><label for="end_time">Select end time</label></td>
+                            <td><label for="end_time">Chọn thời gian kết thúc</label></td>
                             <td><input type="time" name="end_time" value="07:00" step="3600"></td>
                         </tr>
                         <tr>
-                            <td><label for="name">Full name (*)</label></td>
+                            <td><label for="name">Họ và tên (*)</label></td>
                             <td><input type="text" name="name" value="<?php echo $detail_user['name'] ?>" required></td>
                         </tr>
                         <tr>
-                            <td><label for="code">Discount code</label></td>
+                            <td><label for="code">Mã khuyến mãi</label></td>
                             <td><input type="text" name="code"></td>
                         </tr>
                         <tr>
-                            <td><label for="phone">Phone number (*)</label></td>
+                            <td><label for="phone">Số điện thoại (*)</label></td>
                             <td><input type="tel" name="phone"
                                     <?php if (isset($detail_user['phone'])) { echo "value='" . $detail_user['phone'] . "' ";} ?>
                                     required></td>
@@ -145,8 +145,8 @@ $type_note = $pitch_details['type_note'];
                         <input type="hidden" name="volume" value="<?php echo $volume ?>">
                     </table>
                     <div class="popup-actions">
-                        <input type="submit" name='submit' value="Book now" class="button primary">
-                        <button type="button" class="button secondary" onclick="closePopup()">Close</button>
+                        <input type="submit" name='submit' value="Đặt ngay" class="button primary">
+                        <button type="button" class="button secondary" onclick="closePopup()">Đóng</button>
                     </div>
                 </form>
             </div>
