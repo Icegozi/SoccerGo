@@ -121,7 +121,7 @@ $type_note = $pitch_details['type_note'];
                             <td><input type="text" name="name" value="<?php echo $detail_user['name'] ?>" required></td>
                         </tr>
                         <tr>
-                            <td><label for="code">Mã khuyến mãi</label></td>
+                            <td><label for="code">Mã giảm giá</label></td>
                             <td><input type="text" name="code"></td>
                         </tr>
                         <tr>

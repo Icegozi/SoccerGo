@@ -13,94 +13,14 @@ include 'header_admin.php';
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
-    <style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f8f9fa;
-        margin: 0;
-        padding: 20px;
-    }
-
-    .table {
-        background-color: white;
-        border-collapse: collapse;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    .table th,
-    .table td {
-        padding: 15px;
-        text-align: left;
-        vertical-align: middle;
-        border-bottom: 1px solid #ddd;
-    }
-
-    .table th {
-        background-color: #343a40;
-        color: white;
-    }
-
-    .table tr:hover {
-        background-color: #f1f1f1;
-    }
-
-    .table a {
-        color: #007bff;
-        text-decoration: none;
-    }
-
-    .table a:hover {
-        text-decoration: underline;
-    }
-
-
-    .header_pitchManage {
-        padding: 20px 0;
-        background-color: #343a40;
-        color: white;
-        text-align: center;
-        border-bottom: 4px solid #4CAF50;
-    }
-
-    .header_content {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .logo {
-        width: 50px;
-        height: 50px;
-        margin-right: 15px;
-    }
-
-    .badge {
-        padding: 0.5em 0.75em;
-        border-radius: 0.25em;
-        font-size: 0.9em;
-        text-transform: uppercase;
-    }
-
-    h1 {
-        margin: 0;
-        font-size: 35px;
-        font-weight: bold;
-    }
-
-    h1 {
-        margin: 0;
-        padding-bottom: 20px;
-        font-size: 30px;
-        font-weight: bold;
-    }
-    </style>
+    <link rel="stylesheet" href="css/orderHistory.css?v=<?php echo time(); ?>">
 </head>
 
 <body>
     <header class="header_pitchManage">
         <div class="header_content">
             <img class="logo" src="./img/logocauthu.png" alt="">
-            <h1>Quản lý đơn hàng</h1>
+            <h2>Quản lý đơn hàng</h2>
         </div>
     </header>
     <table id="table_order" class="table table-striped" style="width:100%; margin-bottom:20px;">
@@ -114,7 +34,7 @@ include 'header_admin.php';
                 <th>Thời gian kết thúc</th>
                 <th>Tiền cọc</th>
                 <th>Tổng số tiền</th>
-                <th>Mã khuyến mãi</th>
+                <th>Mã giảm giá</th>
                 <th>Trạng thái</th>
                 <th></th>
                 <th></th>
