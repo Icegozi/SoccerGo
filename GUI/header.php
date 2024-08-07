@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/header.css?v = <?php echo time(); ?>">
 </head>
 
 <body>
     <div class="contranner">
         <div class="logo">
-            <img src="" alt="">
+            <img class="logo" src="./img/logocauthu.png" alt="not found image.">
         </div>
         <div class="wrapper">
             <ul class="menu">

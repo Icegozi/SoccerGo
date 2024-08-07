@@ -41,11 +41,11 @@ $users = $userService->getAllUsers();
 <body>
     <header class="header_pitchManage">
         <div class="header_content">
-            <img class="logo" src="./img/logocauthu.png" alt="">
+            <img class="logo" src="./img/logocauthu.png" alt="not found image.">
             <h1>Bảo chì tài khoản</h1>
         </div>
     </header>
-    <table>
+    <table border="0" cellspacing="0">
         <tr>
             <th>#</th>
             <th>Họ Tên</th>
@@ -53,6 +53,7 @@ $users = $userService->getAllUsers();
             <th>Số điện thoại</th>
             <th>Địa chỉ</th>
             <th>Loại tài khoản</th>
+            <th></th>
             <th></th>
         </tr>
         <?php foreach ($users as $user): ?>
@@ -65,6 +66,8 @@ $users = $userService->getAllUsers();
             <td><?php echo $userService->findNameType( $user['type'])?></td>
             <td class="usecase">
                 <a href="editAdmin.php?action=edit&id=<?php echo $user['id']; ?>" style="margin-right: 10px;">Sửa</a>
+            </td>
+            <td class="usecase">
                 <a href="accountManage.php?action=delete&id=<?php echo $user['id']; ?>"
                     onclick="return confirm('Are you sure?')">Xóa</a>
             </td>
@@ -73,7 +76,7 @@ $users = $userService->getAllUsers();
         <?php endforeach; ?>
         <tr>
             <td colspan="6"></td>
-            <td class="addUser">
+            <td colspan="2" class="addUser">
                 <a href="addUser.php">Thêm</a>
             </td>
         </tr>

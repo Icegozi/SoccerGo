@@ -19,11 +19,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang chủ</title>
-    <link rel="stylesheet" href="css/home.css?v= <?php echo time() ?>">
+    <link rel="stylesheet" href="css/home.css?v= <?php echo time(); ?>">
 </head>
 
 <body>
-    <h2 class="title">SOCCER GO</h2>
+    <header class="header_pitchManage">
+        <div class="header_content">
+
+            <h2>SOCCER GO</h2>
+        </div>
+    </header>
     <div class="container">
         <?php if (!empty($emptyPitches)) : ?>
         <?php foreach ($emptyPitches as $pitch) : ?>

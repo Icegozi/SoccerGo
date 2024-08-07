@@ -19,11 +19,16 @@ $user = $userService->getUserById($_SESSION['user_id']);
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Sửa thông tin cá nhân</title>
-    <link rel="stylesheet" href="css/userEdit.css?v= <?php echo time()?>">
+    <link rel="stylesheet" href="css/userEdit.css?v= <?php echo time(); ?>">
 </head>
 
 <body>
-    <h2>SỬA THÔNG TIN CÁ NHÂN</h2>
+    <header class="header_pitchManage">
+        <div class="header_content">
+
+            <h2>SỬA THÔNG TIN CÁ NHÂN</h2>
+        </div>
+    </header>
     <div class="container">
         <div class="col-md-6">
             <form action="update_profile.php" method="post">

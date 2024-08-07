@@ -3,11 +3,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #f8f9fa;
-    /* Light background color for header */
+    background-color: #218838;
     padding: 10px 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* Subtle shadow for depth */
+
 }
 
 /* Styling for the logo section */
@@ -35,11 +34,13 @@
 .contranner .wrapper .menu li {
     margin: 0 15px;
     /* Space between menu items */
+
 }
 
 /* Styling for the links */
 .contranner .wrapper .menu li a {
-    color: #333;
+    color: whitesmoke;
+    ;
     /* Text color for links */
     text-decoration: none;
     /* Remove underline */

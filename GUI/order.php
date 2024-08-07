@@ -36,7 +36,7 @@ include 'header.php';
         $phone = $_SESSION["phone"];
         $data = getOrder($order_id);
         
-        $ten_san = $name . " | " . $quantity . "người";
+        $ten_san = $name . " | " . $quantity . " người";
         $total = $data["total"];
         // Các thông tin chuyển khoản
         $so_tien = $data["deposit"] . " - " . $total;

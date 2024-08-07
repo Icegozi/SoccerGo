@@ -1,109 +1,107 @@
- body {
-     font-family: Arial, sans-serif;
-     background-color: #f8f9fa;
-     margin: 0;
-     padding: 20px;
- }
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    background-color: #e0cedd8c;
+}
 
- .header_pitchManage {
-     padding: 20px 0;
-     background-color: #343a40;
-     color: white;
-     text-align: center;
-     border-bottom: 4px solid #4CAF50;
- }
+.header_pitchManage {
+    padding: 20px 0;
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    border-bottom: 4px solid #4CAF50;
+}
 
- .header_content {
-     display: flex;
-     align-items: center;
-     justify-content: center;
- }
+.header_content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
- .logo {
-     width: 50px;
-     height: 50px;
-     margin-right: 15px;
- }
+.logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+}
 
+h1 {
+    margin: 0;
+    padding-bottom: 20px;
+}
 
- h1 {
-     margin: 0;
-     padding-bottom: 20px;
- }
+.table {
+    background-color: white;
+    width: 100%;
+    border-collapse: collapse;
+}
 
+th,
+td {
+    padding: 15px;
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1px solid #ddd;
+}
 
- .table {
-     background-color: white;
-     border-collapse: collapse;
-     border: none;
-     box-shadow: none;
- }
+th {
+    background-color: #343a40;
+    color: white;
+}
 
- th,
- td {
-     padding: 15px;
-     text-align: left;
-     vertical-align: middle;
-     border-bottom: 1px solid #ddd;
- }
+tr:hover {
+    background-color: #f1f1f1;
+}
 
- th {
-     background-color: #343a40;
-     color: white;
- }
+a {
+    color: #007bff;
+    text-decoration: none;
+}
 
- tr:hover {
-     background-color: #f1f1f1;
- }
+a:hover {
+    text-decoration: underline;
+}
 
- a {
-     color: #007bff;
-     text-decoration: none;
+.action-column {
+    width: 100px;
+    text-align: center;
+}
 
- }
+.usecase {
+    text-align: center;
+}
 
- a:hover {
-     text-decoration: underline;
- }
+@media screen and (max-width: 600px) {
+    table {
+        font-size: 12px;
+    }
+}
 
- .action-column {
-     width: 100px;
-     text-align: center;
- }
+.addUser {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #007bff;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    height: 100%;
+    width: 150%;
+}
 
- .usecase {
-     text-align: center;
- }
+.addUser a {
+    color: white;
+    text-decoration: none;
+    width: 100%;
+    text-align: center;
+}
 
- @media screen and (max-width: 600px) {
-     table {
-         font-size: 12px;
-     }
- }
-
- .addUser {
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     background-color: #007bff;
-     color: white;
-     padding: 8px 15px;
-     border-radius: 5px;
-     text-decoration: none;
-     font-weight: bold;
-     font-size: 14px;
-     transition: background-color 0.3s;
-     height: 100%;
- }
-
- .addUser a {
-     color: white;
-     text-decoration: none;
-     width: 100%;
-     text-align: center;
- }
-
- .addUser:hover {
-     background-color: #0056b3;
-     color: white;
- }
+.addUser:hover {
+    background-color: #0056b3;
+    color: white;
+}
