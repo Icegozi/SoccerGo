@@ -54,4 +54,18 @@ class PitchSearchDAL {
         $conn->close();
         return $pitch;
     }
+
+   public function getImage($id) {
+    $conn = getConnection();
+    $sql = "SELECT image FROM football_pitch_details WHERE football_pitch_id = $id LIMIT 1";
+    $result = $conn->query($sql);
+    
+    if ($result && $result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        return $row['image'];
+    } else {
+        return 'img/pitch.jpg';
+    }
+}
+
 }

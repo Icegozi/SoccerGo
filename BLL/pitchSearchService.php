@@ -8,6 +8,9 @@ class PitchSearchService {
         $this->pitch_searchDAL = new PitchSearchDAL();
     }
 
+    public function getImg($id){
+        return $this->pitch_searchDAL->getImage($id);
+    }
     public function getEmptyPitch() {
     $empty = [];
 
@@ -74,7 +77,8 @@ public function getBookedPitches() {
     return $bookedPitches;
 }
 
-public function getPitchByName($name){
-    return $this->pitch_searchDAL->getPitchByName($name);
-}
+    public function getPitchByName($name){
+        return $this->pitch_searchDAL->getPitchByName($name);
+    }
+
 }

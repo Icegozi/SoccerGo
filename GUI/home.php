@@ -3,6 +3,8 @@ require_once __DIR__ . '/../BLL/pitchSearchService.php';
 $service = new PitchSearchService();
 $emptyPitches = $service->getAllPitches();
 
+$service = new PitchSearchService();
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $pitchId = $_POST['pitchId'];
     $_SESSION['selectedPitch'] = $pitchId;
@@ -26,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php if (!empty($emptyPitches)) : ?>
         <?php foreach ($emptyPitches as $pitch) : ?>
         <div class="info_pitch">
-            <img src="img/pitch.jpg" alt="hình anh">
+            <img src="<?php echo $service->getImg($pitch->id); ?>" alt="hình anh">
             <div class="info_show">
                 <p class="title_name">Tên sân bóng: </p>
                 <p><?php echo $pitch->name; ?></p>
@@ -46,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
         <?php endforeach; ?>
         <?php else : ?>
-        <h3 align="center">No vacant soccer fields found.</h3>
+        <h3 align="center">Không có sân bóng.</h3>
         <?php endif; ?>
     </div>
 </body>

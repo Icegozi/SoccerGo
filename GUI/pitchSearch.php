@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tìm Kiếm Sân Bóng</title>
-    <link rel="stylesheet" href="css/pitchSearch.css?v= <?php time() ?>">
+    <link rel="stylesheet" href="css/pitchSearch.css?v=<?php echo time(); ?>">
 </head>
 
 <body>
@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php if (!empty($emptyPitches)) : ?>
         <?php foreach ($emptyPitches as $pitch) : ?>
         <div class="info_pitch">
-            <img src="img/pitch.jpg" alt="hình anh">
+            <img src="<?php echo $service->getImg($pitch->id); ?>" alt="hình anh">
             <div class="info_show">
                 <p class="title_name">Tên sân bóng: </p>
                 <p><?php echo $pitch->name; ?></p>
