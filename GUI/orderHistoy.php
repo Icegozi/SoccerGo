@@ -16,37 +16,75 @@ include 'header_admin.php';
     <style>
     body {
         font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
         margin: 0;
         padding: 20px;
     }
 
-    #table_order tr th {
-        background-color: #4CAF50;
+    .table {
+        background-color: white;
+        border-collapse: collapse;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .table th,
+    .table td {
+        padding: 15px;
+        text-align: left;
+        vertical-align: middle;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .table th {
+        background-color: #343a40;
         color: white;
     }
 
+    .table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .table a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .table a:hover {
+        text-decoration: underline;
+    }
+
+
     .header_pitchManage {
-        padding-top: 30px;
-        background-color: rgb(41, 224, 81);
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        width: 100%;
+        padding: 20px 0;
+        background-color: #343a40;
         color: white;
-        display: flex;
-        flex-direction: column;
+        text-align: center;
+        border-bottom: 4px solid #4CAF50;
     }
 
     .header_content {
-        padding-left: 50px;
         display: flex;
-        /* Căn giữa các phần tử trong header_content theo chiều dọc */
+        align-items: center;
+        justify-content: center;
     }
 
     .logo {
-        width: 40px;
-        height: 40px;
-        margin-right: 10px;
+        width: 50px;
+        height: 50px;
+        margin-right: 15px;
+    }
+
+    .badge {
+        padding: 0.5em 0.75em;
+        border-radius: 0.25em;
+        font-size: 0.9em;
+        text-transform: uppercase;
+    }
+
+    h1 {
+        margin: 0;
+        font-size: 35px;
+        font-weight: bold;
     }
 
     h1 {
@@ -65,7 +103,7 @@ include 'header_admin.php';
             <h1>Quản lý đơn hàng</h1>
         </div>
     </header>
-    <table id="table_order" class="table table-striped" style="width:100%; margin-bottom:1000px;">
+    <table id="table_order" class="table table-striped" style="width:100%; margin-bottom:20px;">
         <thead>
             <tr>
                 <th>#</th>
@@ -101,26 +139,25 @@ include 'header_admin.php';
                                     echo "<td>";
                                    
                                     if ($order['status'] == 1) {
-                                        echo "<span style='color: green;'>Đang đá</span>";
+                                        echo "<span class='badge bg-success'>Đang đá</span>";
                                     } elseif ($order['status'] == 2) {
-                                        echo "<span style='color: red;'>Chuẩn bị kết thúc</span>";
+                                        echo "<span class='badge bg-warning'>Chuẩn bị kết thúc</span>";
                                     } elseif ($order['status'] == 3) {
-                                        echo "<span style='color: orange;'>Kết thúc</span>";
+                                        echo "<span class='badge bg-secondary'>Kết thúc</span>";
                                     } else {
-                                        echo "Đã đặt";
+                                        echo "<span class='badge bg-info'>Đã đặt</span>";
                                     }
+
                                     echo "</td>";
-                                    echo "<td><a href='#'>Edit</a></td>"; 
-                                    echo "<td><a href='#'>Delete</a></td>"; 
+                                    echo "<td><a href='edit_order.php?id={$order['id']}'>Sửa</a></td>";
+                                    echo "<td><a href='#'>Xóa</a></td>"; 
                                     echo "</tr>";
                                 }
                                 ?>
         </tbody>
     </table>
     </div>
-
     </section>
-
 
 </body>
 

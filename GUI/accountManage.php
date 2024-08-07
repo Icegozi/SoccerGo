@@ -45,7 +45,7 @@ $users = $userService->getAllUsers();
             <h1>Bảo chì tài khoản</h1>
         </div>
     </header>
-    <table border="0">
+    <table>
         <tr>
             <th>#</th>
             <th>Họ Tên</th>
@@ -53,7 +53,7 @@ $users = $userService->getAllUsers();
             <th>Số điện thoại</th>
             <th>Địa chỉ</th>
             <th>Loại tài khoản</th>
-            <th>Thao tác</th>
+            <th></th>
         </tr>
         <?php foreach ($users as $user): ?>
         <tr>
@@ -64,7 +64,7 @@ $users = $userService->getAllUsers();
             <td><?php echo $user['address']; ?></td>
             <td><?php echo $userService->findNameType( $user['type'])?></td>
             <td class="usecase">
-                <a href="editAdmin.php?action=edit&id=<?php echo $user['id']; ?>">Sửa</a> |
+                <a href="editAdmin.php?action=edit&id=<?php echo $user['id']; ?>" style="margin-right: 10px;">Sửa</a>
                 <a href="accountManage.php?action=delete&id=<?php echo $user['id']; ?>"
                     onclick="return confirm('Are you sure?')">Xóa</a>
             </td>

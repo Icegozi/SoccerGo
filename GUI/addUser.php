@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
-    <h2>Add New User</h2>
+    <h2>Thêm Tài Khoản</h2>
     <div class="container">
         <div class="col-md-6">
             <form method="POST">
@@ -82,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <option value="2">Customer</option>
                     </select>
                 </div>
-                <button type="submit" class="btn">Add User</button>
+                <button type="submit" class="btn">Thêm</button>
             </form>
         </div>
     </div>

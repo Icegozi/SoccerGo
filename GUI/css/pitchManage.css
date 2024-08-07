@@ -1,50 +1,40 @@
 body {
-    position: relative;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 20px;
 }
 
 .header_pitchManage {
-    padding-top: 30px;
-
-    background-color: rgb(41, 224, 81);
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    width: 100%;
+    padding: 20px 0;
+    background-color: #343a40;
     color: white;
-    display: flex;
-
-    flex-direction: column;
-    /* Xếp các phần tử con theo chiều dọc */
-    /* Căn giữa các phần tử theo chiều ngang */
+    text-align: center;
+    border-bottom: 4px solid #4CAF50;
 }
 
 .header_content {
-    padding-left: 50px;
     display: flex;
-    /* Căn giữa các phần tử trong header_content theo chiều dọc */
+    align-items: center;
+    justify-content: center;
 }
 
 .logo {
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
 }
+
 
 h1 {
     margin: 0;
-    /* Loại bỏ margin mặc định của h1 */
+    padding-bottom: 20px;
 }
 
 .menu2 {
     padding-top: 10px;
     padding-bottom: 10px;
-    background-color: rgb(29, 161, 58);
+    background-color: #343a40;
     margin-top: 10px;
     /* Khoảng cách giữa header_content và menu */
 }
@@ -56,9 +46,37 @@ h1 {
 }
 
 .butthem,
-.butsua,
-.butthongke {
-    margin-right: 0;
+.butsua {
+    display: inline-block;
+    font-size: 13px;
+    padding: 5px 10px;
+    margin: 0px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Phong cách nút Thêm */
+.butthem {
+    background-color: #28a745;
+    color: white;
+}
+
+.butthem:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+.butsua {
+    background-color: #007bff;
+    color: white;
+}
+
+.butsua:hover {
+    background-color: #0056b3;
+    /* Đậm hơn khi hover */
+    transform: scale(1.05);
+    /* Tăng kích thước khi hover */
 }
 
 .menu2 ul li a img {
@@ -109,13 +127,12 @@ table {
     width: 100%;
     border-collapse: collapse;
     font-family: Arial, sans-serif;
-    margin-top: 30px;
-    margin-bottom: 1000px;
+    margin-bottom: 20px;
 }
 
 thead th {
-    background-color: #f2f2f2;
-    color: #333;
+    background-color: #343a40;
+    color: white;
     padding: 10px;
     text-align: left;
     border-bottom: 1px solid #ddd;

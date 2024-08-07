@@ -36,7 +36,7 @@ ob_start();
                     </form>
                 </li>
                 <li>
-                    <form method="post" action=""><button name="ThemHinhAnh" class="ThemHinhAnh">Thêm hình ảnh</button>
+                    <form method="post" action=""><button name="ThemHinhAnh" class="butthem">Thêm hình ảnh</button>
                     </form>
                 </li>
             </ul>
