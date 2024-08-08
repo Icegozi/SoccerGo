@@ -3,6 +3,7 @@ require_once __DIR__ . '/../BLL/pitchSearchService.php';
 $service = new PitchSearchService();
 
 $value = isset( $_SESSION['something'])? $_SESSION['something']:"";
+$mess = "";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if(isset($_POST['pitchId'])){
         $pitchId = $_POST['pitchId'];
@@ -16,9 +17,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if($_SERVER['REQUEST_METHOD']== 'POST'){
     if(isset($_POST['search'])){
         $name = trim($_POST['search-bar']);
-        $_SESSION['something'] = $name;
-        $emptyPitches = $service-> getPitchByName($name);
-        $value = $name;
+        if(!empty($name)){
+            $_SESSION['something'] = $name;
+            $emptyPitches = $service-> getPitchByName($name);
+            $value = $name;
+        }else{
+            $mess = "Vui lòng nhập tên sân bóng!";
+            unset($_SESSION['something']);
+            $value = "";
+        }
     }
 }
 ?>
@@ -70,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
         <?php endforeach; ?>
         <?php else : ?>
-        <h3 align="center">Không có thông tin về sân bóng.</h3>
+        <h3 align="center"><?php echo $mess; ?></h3>
         <?php endif; ?>
     </div>
 </body>
