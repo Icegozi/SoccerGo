@@ -13,3 +13,16 @@
         $conn->close();
         return $pitch;
     }
+
+    function getDiscountByCode($code) {
+    $conn = getConnection();
+    $sql = $conn->prepare("SELECT * FROM discounts WHERE code = ?");
+    $sql->bind_param("s", $code);
+    $sql->execute();
+    $result = $sql->get_result();
+
+    $discount = $result->fetch_assoc();
+    $conn->close();
+
+    return $discount;
+}

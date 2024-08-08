@@ -14,10 +14,10 @@ if (isset($_GET['action'])) {
                 $id = $_GET['id'];
                 $result = $userService->deleteUser($id);
                 if ($result) {
-                    echo '<script type="text/javascript">alert("User deleted successfully."); location.replace("dashboard_admin.php");</script>';
+                    echo '<script type="text/javascript">alert("Tài khoản đã được xóa thành công."); location.replace("dashboard_admin.php");</script>';
                     exit(); 
                 } else {
-                    echo "Failed to delete user.";
+                    echo "Có lỗi xảy ra, vui lòng thực hiện lại thao tác!";
                 }
             }
             break;
@@ -69,7 +69,7 @@ $users = $userService->getAllUsers();
             </td>
             <td class="usecase">
                 <a href="accountManage.php?action=delete&id=<?php echo $user['id']; ?>"
-                    onclick="return confirm('Are you sure?')">Xóa</a>
+                    onclick="return confirm('Bạn có chắc chắn muốn xóa tài khoản này?')">Xóa</a>
             </td>
         </tr>
 

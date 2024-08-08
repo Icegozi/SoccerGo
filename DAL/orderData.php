@@ -48,58 +48,58 @@
 
 
     function createNewOrderData($pitch_id, $user_id, $name, $phone, $deposit, $code, $start_time, $end_time, $total, $status, $email = null, $note = null, $created_at = null) {
-    $conn = getConnection();
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+        $conn = getConnection();
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        // Gỡ lỗi: hiển thị các giá trị biến trước khi thực thi
+        echo "createNewOrderData - pitch_id: $pitch_id, user_id: $user_id, name: $name, phone: $phone, deposit: $deposit, code: $code, start_time: $start_time, end_time: $end_time, total: $total, status: $status, email: $email, note: $note, created_at: $created_at<br>";
+
+        $id = null;
+        $stmt = null;
+
+        if ($code) {
+            $stmt = $conn->prepare("INSERT INTO orders (id, name, phone, email, deposit, code, start_at, end_at, total, status, note, user_id, football_pitch_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param('isssdsssdisiis', $id, $name, $phone, $email, $deposit, $code, $start_time, $end_time, $total, $status, $note, $user_id, $pitch_id, $created_at);
+        } else {
+            $stmt = $conn->prepare("INSERT INTO orders (id, name, phone, email, deposit, start_at, end_at, total, status, note, user_id, football_pitch_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param('isssdsssdissi', $id, $name, $phone, $email, $deposit, $start_time, $end_time, $total, $status, $note, $user_id, $pitch_id, $created_at);
+        }
+
+        if ($stmt->execute() === false) {
+            die("Execute failed: " . $stmt->error);
+        }
+
+        $stmt->close();
+
+        // Gỡ lỗi: kiểm tra xem bản ghi mới có được thêm thành công không
+        $checkStmt = $conn->prepare("SELECT id FROM orders WHERE start_at = ? AND end_at = ? AND user_id = ? AND football_pitch_id = ?");
+        if ($checkStmt === false) {
+            die("Prepare failed: " . $conn->error);
+        }
+
+        $checkStmt->bind_param("ssii", $start_time, $end_time, $user_id, $pitch_id);
+        if ($checkStmt->execute() === false) {
+            die("Execute failed: " . $checkStmt->error);
+        }
+
+        $re = $checkStmt->get_result();
+        if ($re === false) {
+            die("Get result failed: " . $checkStmt->error);
+        }
+
+        if ($re->num_rows == 0) {
+            return 0;
+        } else {
+            $r = $re->fetch_assoc();
+            $id = $r["id"];
+        }
+
+        $checkStmt->close();
+        $conn->close();
+        return $id;
     }
-
-    // Gỡ lỗi: hiển thị các giá trị biến trước khi thực thi
-    echo "createNewOrderData - pitch_id: $pitch_id, user_id: $user_id, name: $name, phone: $phone, deposit: $deposit, code: $code, start_time: $start_time, end_time: $end_time, total: $total, status: $status, email: $email, note: $note, created_at: $created_at<br>";
-
-    $id = null;
-    $stmt = null;
-
-    if ($code) {
-        $stmt = $conn->prepare("INSERT INTO orders (id, name, phone, email, deposit, code, start_at, end_at, total, status, note, user_id, football_pitch_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param('isssdsssdisiis', $id, $name, $phone, $email, $deposit, $code, $start_time, $end_time, $total, $status, $note, $user_id, $pitch_id, $created_at);
-    } else {
-        $stmt = $conn->prepare("INSERT INTO orders (id, name, phone, email, deposit, start_at, end_at, total, status, note, user_id, football_pitch_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param('isssdsssdissi', $id, $name, $phone, $email, $deposit, $start_time, $end_time, $total, $status, $note, $user_id, $pitch_id, $created_at);
-    }
-
-    if ($stmt->execute() === false) {
-        die("Execute failed: " . $stmt->error);
-    }
-
-    $stmt->close();
-
-    // Gỡ lỗi: kiểm tra xem bản ghi mới có được thêm thành công không
-    $checkStmt = $conn->prepare("SELECT id FROM orders WHERE start_at = ? AND end_at = ? AND user_id = ? AND football_pitch_id = ?");
-    if ($checkStmt === false) {
-        die("Prepare failed: " . $conn->error);
-    }
-
-    $checkStmt->bind_param("ssii", $start_time, $end_time, $user_id, $pitch_id);
-    if ($checkStmt->execute() === false) {
-        die("Execute failed: " . $checkStmt->error);
-    }
-
-    $re = $checkStmt->get_result();
-    if ($re === false) {
-        die("Get result failed: " . $checkStmt->error);
-    }
-
-    if ($re->num_rows == 0) {
-        return 0;
-    } else {
-        $r = $re->fetch_assoc();
-        $id = $r["id"];
-    }
-
-    $checkStmt->close();
-    $conn->close();
-    return $id;
-}
 
 
     function getStatusOrderById($order_id) {
@@ -120,29 +120,55 @@
 
 
     function getUnpaidOrders() {
-    $conn = getConnection();
-    $sql = "SELECT id, name, start_at, end_at, deposit, total, code, status, phone, email FROM orders WHERE status = 'unpaid'";
-    $result = $conn->query($sql);
-    $orders = array();
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            $orders[] = $row;
+        $conn = getConnection();
+        $sql = "SELECT id, name, start_at, end_at, deposit, total, code, status, phone, email FROM orders WHERE status = 'unpaid'";
+        $result = $conn->query($sql);
+        $orders = array();
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $orders[] = $row;
+            }
         }
+        $conn->close();
+        return $orders;
     }
-    $conn->close();
-    return $orders;
-}
 
-function getAllOrders() {
-    $conn = getConnection();
-    $sql = "SELECT id, name, start_at, end_at, deposit, total, code, status, phone, email FROM orders";
-    $result = $conn->query($sql);
-    $orders = array();
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            $orders[] = $row;
+    function getAllOrders() {
+        $conn = getConnection();
+        $sql = "SELECT id, name, start_at, end_at, deposit, total, code, status, phone, email FROM orders";
+        $result = $conn->query($sql);
+        $orders = array();
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $orders[] = $row;
+            }
         }
+        $conn->close();
+        return $orders;
     }
-    $conn->close();
-    return $orders;
-}
+
+    function updateOrderData($id,$name,$phone,$email,$start_at,$end_at,$deposit,$status, $total){
+        $conn = getConnection();
+        $sql = "UPDATE orders SET name = '$name',phone = '$phone', email = '$email', deposit = '$deposit', start_at = '$start_at', end_at = '$end_at', total = '$total', status = '$status' WHERE id = '$id'" ;
+        $data = $conn->query($sql);
+        if($data){
+            return true;
+        } else {
+            echo "Error: " . $conn->error;
+        }
+        $conn->close();
+        return false;
+    }
+
+    function removeOrderData($id){
+        $conn = getConnection();
+        $sql = "DELETE FROM orders WHERE id = '$id'";
+        $data = $conn->query($sql);
+        if($data){
+            return true;
+        }else {
+            echo "Error: " . $conn->error;
+        }
+        $conn->close();
+        return false;
+    }

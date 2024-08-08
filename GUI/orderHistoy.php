@@ -1,6 +1,16 @@
 <?php
 require_once '../DAL/orderData.php'; 
-include 'header_admin.php';
+require_once '../BLL/orderService.php'; 
+
+if(isset($_GET['id'])){
+    $odderId = $_GET['id'];
+    if(removeOrderService($odderId)){
+       header('Location: dashboard_admin.php?pg=summary');
+       exit();
+    }else {
+        echo "Failed to update order.";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -70,7 +80,7 @@ include 'header_admin.php';
 
                                     echo "</td>";
                                     echo "<td><a href='edit_order.php?id={$order['id']}'>Sửa</a></td>";
-                                    echo "<td><a href='#'>Xóa</a></td>"; 
+                                    echo "<td><a href='orderHistoy.php?id={$order['id']}' onclick='return confirmDelete();'>Xóa</a></td>";
                                     echo "</tr>";
                                 }
                                 ?>
@@ -79,10 +89,12 @@ include 'header_admin.php';
     </div>
     </section>
 
+    <script type="text/javascript">
+    function confirmDelete() {
+        return confirm('Bạn có chắc chắn muốn xóa đơn hàng này?');
+    }
+    </script>
+
 </body>
 
 </html>
-
-<?php
-include 'footer.php';
-?>

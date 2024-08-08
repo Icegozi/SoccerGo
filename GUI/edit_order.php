@@ -1,10 +1,10 @@
 <?php
-require_once '../DAL/orderData.php'; 
+require_once '../BLL/orderService.php'; 
 include 'header_admin.php';
 
 if (isset($_GET['id'])) {
     $order_id = $_GET['id'];
-    $order = getOrderById($order_id); // Fetch order details by ID
+    $order = getOrder($order_id); 
 
     if ($order) {
         // The order details were found, you can now populate the form with the existing data
@@ -25,14 +25,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'start_at' => $_POST['start_at'],
         'end_at' => $_POST['end_at'],
         'deposit' => $_POST['deposit'],
-        'total' => $_POST['total'],
-        'code' => $_POST['code'],
-        'status' => $_POST['status']
+        'status' => $_POST['status'],
+        'football_pitch_id' => $_POST['football_pitch_id']
     ];
 
-    //updateOrder($updated_order); // Update the order in the database
-    header('Location: index.php'); // Redirect back to the main page
-    exit();
+    // Cập nhật đơn hàng
+    $result = updateOrder($updated_order); 
+
+    if ($result) {
+        header('Location: dashboard_admin.php?pg=summary');
+        exit();
+    } else {
+        echo "Failed to update order.";
+    }
 }
 ?>
 
@@ -58,6 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php if ($order): ?>
         <form action="edit_order.php" method="POST">
             <input type="hidden" name="id" value="<?php echo $order['id']; ?>">
+            <input type="hidden" name="football_pitch_id" value="<?php echo $order['football_pitch_id']; ?>">
             <div class="mb-3">
                 <label for="name" class="form-label">Tên khách hàng</label>
                 <input type="text" class="form-control" id="name" name="name" value="<?php echo $order['name']; ?>"
@@ -87,15 +93,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <label for="deposit" class="form-label">Tiền cọc</label>
                 <input type="number" class="form-control" id="deposit" name="deposit"
                     value="<?php echo $order['deposit']; ?>" required>
-            </div>
-            <div class="mb-3">
-                <label for="total" class="form-label">Tổng số tiền</label>
-                <input type="number" class="form-control" id="total" name="total" value="<?php echo $order['total']; ?>"
-                    required>
-            </div>
-            <div class="mb-3">
-                <label for="code" class="form-label">Mã khuyến mãi</label>
-                <input type="text" class="form-control" id="code" name="code" value="<?php echo $order['code']; ?>">
             </div>
             <div class="mb-3">
                 <label for="status" class="form-label">Trạng thái</label>
