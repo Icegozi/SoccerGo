@@ -48,7 +48,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
-    <h2>Chỉnh sửa đơn hàng</h2>
+    <header class="header_pitchManage">
+        <div class="header_content">
+            <img class="logo" src="./img/logocauthu.png" alt="">
+            <h2>Chỉnh sửa đơn hàng</h2>
+        </div>
+    </header>
     <div class="container">
         <?php if ($order): ?>
         <form action="edit_order.php" method="POST">
