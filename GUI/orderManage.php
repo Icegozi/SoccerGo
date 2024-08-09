@@ -46,8 +46,8 @@ if(isset($_GET['id'])){
                 <th>Tiền cọc</th>
                 <th>Tổng số tiền</th>
                 <th>Trạng thái</th>
-                <th></th>
-                <th></th>
+                <th colspan="2">Thao Tác</th>
+
             </tr>
         </thead>
         <tbody>
@@ -80,7 +80,7 @@ if(isset($_GET['id'])){
 
                                     echo "</td>";
                                     echo "<td><a href='edit_order.php?id={$order['id']}'>Sửa</a></td>";
-                                    echo "<td><a href='orderHistoy.php?id={$order['id']}' onclick='return confirmDelete();'>Xóa</a></td>";
+                                    echo "<td><a href='orderManage.php?id={$order['id']}' onclick='return confirmDelete();'>Xóa</a></td>";
                                     echo "</tr>";
                                 }
                                 ?>

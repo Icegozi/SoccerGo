@@ -35,6 +35,8 @@ $users = $userService->getAllUsers();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bảo chì tài khoản</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="css/accountManage.css?v= <?php echo time(); ?>">
 </head>
 
@@ -45,7 +47,7 @@ $users = $userService->getAllUsers();
             <h2>Bảo chì tài khoản</h2>
         </div>
     </header>
-    <table border="0" cellspacing="0">
+    <table border="0" cellspacing="0" class="table table-striped table-hover">
         <tr>
             <th>#</th>
             <th>Họ Tên</th>
@@ -53,8 +55,7 @@ $users = $userService->getAllUsers();
             <th>Số điện thoại</th>
             <th>Địa chỉ</th>
             <th>Loại tài khoản</th>
-            <th></th>
-            <th></th>
+            <th style="text-align: center;">Thao tác</th>
         </tr>
         <?php foreach ($users as $user): ?>
         <tr>
@@ -64,23 +65,19 @@ $users = $userService->getAllUsers();
             <td><?php echo $user['phone']; ?></td>
             <td><?php echo $user['address']; ?></td>
             <td><?php echo $userService->findNameType( $user['type'])?></td>
-            <td class="usecase">
+            <td class="usecase" style="text-align: center;">
                 <a href="editAdmin.php?action=edit&id=<?php echo $user['id']; ?>" style="margin-right: 10px;">Sửa</a>
-            </td>
-            <td class="usecase">
                 <a href="accountManage.php?action=delete&id=<?php echo $user['id']; ?>"
-                    onclick="return confirm('Bạn có chắc chắn muốn xóa tài khoản này?')">Xóa</a>
+                    onclick="return confirm('Bạn có chắc chắn muốn xóa tài khoản này?')" class="xoa">Xóa</a>
             </td>
         </tr>
 
         <?php endforeach; ?>
-        <tr>
-            <td colspan="6"></td>
-            <td colspan="2" class="addUser">
-                <a href="addUser.php">Thêm</a>
-            </td>
-        </tr>
+
     </table>
+    <div class="addUser">
+        <a href="addUser.php">Thêm</a>
+    </div>
 </body>
 
 </html>

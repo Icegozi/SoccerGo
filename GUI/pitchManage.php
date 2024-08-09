@@ -15,6 +15,8 @@ ob_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soccer field management</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="./css/pitchManage.css?v = <?php echo time(); ?>">
 </head>
 
@@ -163,26 +165,23 @@ ob_start();
         <?php endif;   ?>
 
 
-        <table>
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Tên sân bóng</th>
-                    <th>Thời gian mở cửa</th>
-                    <th>Thời gian đóng cửa</th>
-                    <th>Mô tả</th>
-                    <th>Giá sân trong 1 giờ</th>
-                    <th>Giá sân giờ cao điểm</th>
-                    <th>Bảo trì</th>
-                    <th>Mã loại sân</th>
-                    <th>Thời gian tạo</th>
-                    <th>Thời gian cập nhật</th>
-                    <th>Hình ảnh</th>
-                    <th>Xóa</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
+        <table class="table table-striped">
+            <tr>
+                <th>#</th>
+                <th>Tên sân bóng</th>
+                <th>Thời gian mở cửa</th>
+                <th>Thời gian đóng cửa</th>
+                <th>Mô tả</th>
+                <th>Giá sân trong 1 giờ</th>
+                <th>Giá sân giờ cao điểm</th>
+                <th>Bảo trì</th>
+                <th>Mã loại sân</th>
+                <th>Thời gian tạo</th>
+                <th>Thời gian cập nhật</th>
+                <th>Hình ảnh</th>
+                <th>Xóa</th>
+            </tr>
+            <?php
                 while($row = $result->fetch_assoc()) {
                     echo "<tr>";
                     echo "<td>" . $row["id"] . "</td>";
@@ -203,7 +202,6 @@ ob_start();
                     echo "</tr>";
                 }
             ?>
-            </tbody>
         </table>
         <?php
         if($_SERVER["REQUEST_METHOD"]==='POST') {

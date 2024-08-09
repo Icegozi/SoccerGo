@@ -29,81 +29,62 @@ body {
 h2 {
     font-size: 25px;
     font-weight: bold;
-    padding: 15px 0px;
+    padding: 35px 0px;
 }
 
 .table {
     background-color: white;
-    width: 100%;
-    margin-bottom: 20px;
+    border-collapse: collapse;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-th,
-td {
+.table th,
+.table td {
     padding: 15px;
     text-align: left;
     vertical-align: middle;
     border-bottom: 1px solid #ddd;
 }
 
-th {
+.table th {
     background-color: #343a40;
     color: white;
 }
 
-tr:hover {
-    background-color: #f1f1f1;
-}
-
-a {
+.table a {
     color: #007bff;
     text-decoration: none;
 }
 
-a:hover {
+.table a:hover {
     text-decoration: underline;
 }
 
-.action-column {
-    width: 100px;
-    text-align: center;
-}
-
-.usecase {
-    text-align: center;
-}
-
-@media screen and (max-width: 600px) {
-    table {
-        font-size: 12px;
-    }
+.xoa {
+    margin-left: 20px;
 }
 
 .addUser {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #007bff;
-    color: white;
-    padding: 8px 15px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 14px;
-    transition: background-color 0.3s;
-    height: 100%;
-    width: 150%;
-    margin-bottom: 20px;
+    width: 100%;
+    height: 40px;
 }
 
 .addUser a {
     color: white;
     text-decoration: none;
-    width: 100%;
+    background-color: #343a40;
+    padding: 8px 70px;
+    border-radius: 5px;
+    text-decoration: none;
     text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    margin-left: 89%;
+    cursor: pointer;
 }
 
-.addUser:hover {
-    background-color: #0056b3;
+.addUser a:hover {
+    background-color: #4CAF50;
     color: white;
 }
