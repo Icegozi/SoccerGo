@@ -59,56 +59,59 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit admin</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/userEdit.css?v=<?php echo time(); ?>">
 </head>
 
 <body>
-    <h2>Sửa tài khoản</h2>
-    <div class="container">
-        <div class="col-md-6">
-            <form action="" method="post">
-                <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
-                <div class="form-group">
-                    <label for="tenKhachHang">Tên Khách hàng</label><br>
-                    <input type="text" class="form-control" id="tenKhachHang" name="tenKhachHang"
-                        value="<?php echo $user['name']; ?>">
-                </div>
-
-                <div class="form-group">
-                    <div class="">
-                        <label for="matKhau">Mật khẩu</label><br>
-                        <input type="password" class="form-control" id="matKhau" name="matKhau" value="">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="">
-                        <label for="xacNhan">Xác nhân mật khẩu</label><br>
-                        <input type="password" class="form-control" id="xacNhan" name="xacNhan" value="">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="soDienThoai">Số điện thoại</label><br>
-                    <input type="text" class="form-control" id="soDienThoai" name="soDienThoai"
-                        value="<?php echo $user['phone']; ?>">
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email</label><br>
-                    <input type="email" class="form-control" id="email" name="email"
-                        value="<?php echo $user['email']; ?>">
-                </div>
-
-                <div class="form-group">
-                    <label for="diaChi">Địa chỉ</label><br>
-                    <input type="text" class="form-control" id="diaChi" name="diaChi"
-                        value="<?php echo $user['address']; ?>">
-                </div>
-
-                <button type="submit" class="btn">Cập nhật</button>
-            </form>
+    <header class="header_pitchManage">
+        <div class="header_content">
+            <img class="logo" src="./img/logocauthu.png" alt="">
+            <h2>Sửa tài khoản</h2>
         </div>
+    </header>
+    <div class="container">
+        <form action="" method="post">
+            <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
+            <div class="mb-3">
+                <label for="tenKhachHang" class="form-label">Tên Khách hàng</label><br>
+                <input type="text" class="form-control id=" tenKhachHang" name="tenKhachHang"
+                    value="<?php echo $user['name']; ?>">
+            </div>
+
+            <div class="mb-3">
+                <div class="">
+                    <label for="matKhau" class="form-label">Mật khẩu</label><br>
+                    <input type="password" class="form-control" id="matKhau" name="matKhau" value="">
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <div class="">
+                    <label for="xacNhan" class="form-label">Xác nhân mật khẩu</label><br>
+                    <input type="password" class="form-control" id="xacNhan" name="xacNhan" value="">
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="soDienThoai" class="form-label">Số điện thoại</label><br>
+                <input type="text" class="form-control" id="soDienThoai" name="soDienThoai"
+                    value="<?php echo $user['phone']; ?>">
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label><br>
+                <input type="email" class="form-control" id="email" name="email" value="<?php echo $user['email']; ?>">
+            </div>
+
+            <div class="mb-3">
+                <label for="diaChi" class="form-label">Địa chỉ</label><br>
+                <input type="text" class="form-control" id="diaChi" name="diaChi"
+                    value="<?php echo $user['address']; ?>">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+        </form>
     </div>
 </body>
 

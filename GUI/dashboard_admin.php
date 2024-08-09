@@ -25,7 +25,7 @@ if(isset($_GET['pg'])){
             include 'accountManage.php';
             break;
         case 'summary': 
-            include 'orderHistoy.php'; 
+            include 'orderManage.php'; 
             break;
         case 'logout': 
             session_destroy();

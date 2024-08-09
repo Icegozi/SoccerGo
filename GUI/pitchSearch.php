@@ -42,8 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <header class="header_pitchManage">
         <div class="header_content">
-
-            <h2>TÌM KIẾM SÂN BÓNG</h2>
+            <h2>Tìm kiếm sân bóng</h2>
         </div>
     </header>
     <div class="form-search">

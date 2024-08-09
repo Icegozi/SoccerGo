@@ -8,7 +8,7 @@ if(isset($_GET['id'])){
        header('Location: dashboard_admin.php?pg=summary');
        exit();
     }else {
-        echo "Failed to update order.";
+        echo "Cập nhật thất bại, vui lòng kiểm tra lại các thao tác.";
     }
 }
 ?>
@@ -23,7 +23,7 @@ if(isset($_GET['id'])){
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
-    <link rel="stylesheet" href="css/orderHistory.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/orderManage.css?v=<?php echo time(); ?>">
 </head>
 
 <body>

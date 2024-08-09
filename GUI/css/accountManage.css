@@ -7,7 +7,7 @@ body {
 }
 
 .header_pitchManage {
-    padding: 20px 0;
+
     background-color: #343a40;
     color: white;
     text-align: center;
@@ -24,6 +24,12 @@ body {
     width: 50px;
     height: 50px;
     margin-right: 15px;
+}
+
+h2 {
+    font-size: 25px;
+    font-weight: bold;
+    padding: 15px 0px;
 }
 
 .table {

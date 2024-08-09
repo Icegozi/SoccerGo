@@ -25,8 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <header class="header_pitchManage">
         <div class="header_content">
-
-            <h2>SOCCER GO</h2>
+            <h2>Soccer Go</h2>
         </div>
     </header>
     <div class="container">

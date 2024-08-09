@@ -22,7 +22,7 @@ ob_start();
     <header class="header_pitchManage">
         <div class="header_content">
             <img class="logo" src="./img/logocauthu.png" alt="">
-            <h1>Quản lý sân bóng</h1>
+            <h2>Quản lý sân bóng</h2>
         </div>
         <nav class="menu2">
             <ul>
@@ -198,7 +198,7 @@ ob_start();
                     echo "<td>" . $row["updated_at"] . "</td>";
                     echo "<td><form action='dashboard_admin.php?pg=pitchManage' method='post'><button type='submit' name ='Anh' ><img class='iconeye' src='./img/iconeye.png' alt=''></button>
                     <input type='hidden' name='hidenId' value='". $row['id']."'></form></td>";
-                    echo "<td> <form action='dashboard_admin.php?pg=pitchManage' method='post'><button type='submit' name= 'Xoa' ><img class='icontrash' src='./img/Trash.jpg' alt=''></button>
+                    echo "<td> <form action='dashboard_admin.php?pg=pitchManage' method='post'><button type='submit' name= 'Xoa' onclick='return confirmDelete();')'><img class='icontrash' src='./img/Trash.jpg' alt=''></button>
                     <input type='hidden' name='hidenId' value='". $row['id']."'></form></td>";
                     echo "</tr>";
                 }
@@ -256,6 +256,12 @@ ob_start();
 
        }
     ?>
+
+        <script type="text/javascript">
+        function confirmDelete() {
+            return confirm('Bạn có chắc chắn muốn xóa sân bóng này?');
+        }
+        </script>
 
     </body>
 

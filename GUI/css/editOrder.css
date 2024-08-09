@@ -26,6 +26,12 @@ body {
     margin-right: 15px;
 }
 
+h2 {
+    font-size: 25px;
+    font-weight: bold;
+    padding: 15px 0px;
+}
+
 .container {
     max-width: 700px;
     background-color: white;
@@ -74,6 +80,7 @@ body {
     background-color: #4CAF50;
     border-color: #4CAF50;
     color: #ffffff;
+    cursor: pointer;
 }
 
 .btn-primary:focus {

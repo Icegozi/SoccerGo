@@ -42,7 +42,7 @@ $users = $userService->getAllUsers();
     <header class="header_pitchManage">
         <div class="header_content">
             <img class="logo" src="./img/logocauthu.png" alt="not found image.">
-            <h1>Bảo chì tài khoản</h1>
+            <h2>Bảo chì tài khoản</h2>
         </div>
     </header>
     <table border="0" cellspacing="0">
