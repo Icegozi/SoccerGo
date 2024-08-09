@@ -86,16 +86,19 @@ function getNamefromData(){
 
 function getPitchNameFromDatabase($id){
     $conn = getConnection();
-    $sql = "SELECT name from football_pitches WHERE id = '$id'" ;
+    $sql = "SELECT name FROM football_pitches WHERE id = '$id'";
     $result = $conn->query($sql);
     
-    if ($result === false) {
-        die("Error in query: " . $conn->error);
+    if ($result === false || $result->num_rows == 0) {
+        $conn->close();
+        return null; 
     }
     
+    $data = $result->fetch_assoc();
     $conn->close();
-    return $result;
+    return $data;
 }
+
 
 function getPitchIdByName($name){
     $conn = getConnection();

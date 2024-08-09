@@ -1,6 +1,6 @@
 <?php
-require_once '../DAL/orderData.php'; 
 require_once '../BLL/orderService.php'; 
+require_once '../BLL/pitchManageService.php';
 
 if(isset($_GET['id'])){
     $odderId = $_GET['id'];
@@ -38,13 +38,13 @@ if(isset($_GET['id'])){
             <tr>
                 <th>#</th>
                 <th>Tên khách hàng</th>
+                <th>Tên sân bóng</th>
                 <th>Số điện thoại</th>
                 <th>Email</th>
                 <th>Thời gian bắt đầu</th>
                 <th>Thời gian kết thúc</th>
                 <th>Tiền cọc</th>
                 <th>Tổng số tiền</th>
-                <th>Mã giảm giá</th>
                 <th>Trạng thái</th>
                 <th></th>
                 <th></th>
@@ -52,20 +52,20 @@ if(isset($_GET['id'])){
         </thead>
         <tbody>
             <?php
-                                // Lấy danh sách các order và hiển thị
                                 $orders = getAllOrders(); 
 
                                 foreach ($orders as $order) {
+                                   $pitch = getNameByID($order['football_pitch_id']);
                                     echo "<tr>";
                                     echo "<td>{$order['id']}</td>";
                                     echo "<td>{$order['name']}</td>";
+                                    echo "<td>" . ($pitch ? $pitch : 'Unknown Pitch') . "</td>";
                                     echo "<td>{$order['phone']}</td>";
                                     echo "<td>{$order['email']}</td>";
                                     echo "<td>{$order['start_at']}</td>";
                                     echo "<td>{$order['end_at']}</td>";
                                     echo "<td>{$order['deposit']}</td>";
                                     echo "<td>{$order['total']}</td>";
-                                    echo "<td>{$order['code']}</td>";
                                     echo "<td>";
                                    
                                     if ($order['status'] == 1) {

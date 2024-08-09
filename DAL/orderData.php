@@ -135,7 +135,7 @@
 
     function getAllOrders() {
         $conn = getConnection();
-        $sql = "SELECT id, name, start_at, end_at, deposit, total, code, status, phone, email FROM orders";
+        $sql = "SELECT id, name, start_at, end_at, deposit, total, code, status, phone, email, football_pitch_id FROM orders";
         $result = $conn->query($sql);
         $orders = array();
         if ($result->num_rows > 0) {

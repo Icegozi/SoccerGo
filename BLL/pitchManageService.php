@@ -87,8 +87,9 @@
     }
     
     function getNameByID($id){
+        $result = [];
         $result = getPitchNameFromDatabase($id);
-        return $result;
+        return $result['name'];
     }
 
     function getID($name){
