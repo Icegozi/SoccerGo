@@ -21,6 +21,10 @@ if (isset($_SESSION['user_id'])) {
     $user_id = 1;
 }
 
+if(isset($_POST['quaylai'])){
+    header("Location: dashboard.php?pg=home");
+    exit();
+}
 $date_now = date('Y-m-d');
 $name = $pitch_details['name'];
 $time_open = $pitch_details['time_start'];
@@ -58,10 +62,6 @@ $type_note = $pitch_details['type_note'];
                             onclick="changeImage('<?php echo $imageSrc; ?>')">
                         <?php endforeach; ?>
                     </div>
-                    <div class="scroll-buttons" id="scroll-buttons">
-                        <button onclick="scrollThumbnails(-150)">Previous</button>
-                        <button onclick="scrollThumbnails(150)">Next</button>
-                    </div>
                 </div>
             </div>
             <div class="details-panel">
@@ -93,7 +93,9 @@ $type_note = $pitch_details['type_note'];
                 </div>
                 <div class="action-buttons">
                     <button class="button primary" onclick="openPopup()">Đặt sân</button>
-                    <button class="button secondary">Quay lại</button>
+                    <form action="pitchDetail.php" method="post">
+                        <input type="submit" class="button secondary" name="quaylai" value="Quay lại">
+                    </form>
                 </div>
             </div>
 
@@ -178,16 +180,6 @@ $type_note = $pitch_details['type_note'];
         }
     }
 
-    function scrollThumbnails(amount) {
-        let currentTransform = getComputedStyle(thumbnailContainer).transform;
-        let matrixValues = currentTransform.match(/matrix.*\((.+)\)/);
-        let currentX = matrixValues ? parseFloat(matrixValues[1].split(', ')[4]) : 0;
-        let newX = currentX + amount;
-        let maxScrollX = (images.length - 5) * -150;
-        if (newX > 0) newX = 0;
-        if (newX < maxScrollX) newX = maxScrollX;
-        thumbnailContainer.style.transform = `translateX(${newX}px)`;
-    }
 
     if (images.length > 5) {
         scrollButtons.style.display = 'flex';

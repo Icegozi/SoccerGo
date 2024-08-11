@@ -21,6 +21,9 @@ if(isset($_GET['pg'])){
         case 'pitchSearch':
             include 'pitchSearch.php';
             break;
+        case 'home':
+            include 'home.php';
+            break;
         case 'logout': 
             session_destroy();
             header("Location: login.php");

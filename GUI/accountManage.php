@@ -37,6 +37,7 @@ $users = $userService->getAllUsers();
     <title>Bảo chì tài khoản</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="css/accountManage.css?v= <?php echo time(); ?>">
 </head>
 
@@ -66,9 +67,11 @@ $users = $userService->getAllUsers();
             <td><?php echo $user['address']; ?></td>
             <td><?php echo $userService->findNameType( $user['type'])?></td>
             <td class="usecase" style="text-align: center;">
-                <a href="editAdmin.php?action=edit&id=<?php echo $user['id']; ?>" style="margin-right: 10px;">Sửa</a>
+                <a href="editAdmin.php?action=edit&id=<?php echo $user['id']; ?>" style="margin-right: 10px;"><i
+                        class="fa-solid fa-gear"></i></a>
                 <a href="accountManage.php?action=delete&id=<?php echo $user['id']; ?>"
-                    onclick="return confirm('Bạn có chắc chắn muốn xóa tài khoản này?')" class="xoa">Xóa</a>
+                    onclick="return confirm('Bạn có chắc chắn muốn xóa tài khoản này?')" class="xoa"><i
+                        class="fa-solid fa-trash-can"></i></a>
             </td>
         </tr>
 

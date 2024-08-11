@@ -91,3 +91,29 @@ h2 {
     border-color: #6c757d;
     opacity: 0.65;
 }
+
+/* Định vị tương đối cho phần tử chứa để sử dụng vị trí tuyệt đối */
+.mb-3.position-relative {
+    position: relative;
+}
+
+/* Định vị biểu tượng tuyệt đối bên trong input */
+#ia,
+#ib {
+    position: absolute;
+    right: 10px;
+    /* Đặt khoảng cách từ bên phải của input */
+    top: 75%;
+    transform: translateY(-50%);
+    /* Để căn giữa theo chiều dọc */
+    cursor: pointer;
+    /* Đổi con trỏ khi hover */
+    color: #6c757d;
+    /* Màu của biểu tượng */
+}
+
+/* Đảm bảo input có đủ khoảng trống cho biểu tượng */
+input.form-control {
+    padding-right: 35px;
+    /* Tạo khoảng trống cho biểu tượng */
+}

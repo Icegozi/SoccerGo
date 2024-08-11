@@ -10,7 +10,8 @@
 <body>
     <div class="contranner">
         <div class="logo">
-            <img class="logo" src="./img/logocauthu.png" alt="not found image.">
+            <a href="dashboard.php?pg=home"><img class="logo" src="./img/logocauthu.png" alt="not found image."></a>
+
         </div>
         <div class="wrapper">
             <ul class="menu">

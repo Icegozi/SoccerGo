@@ -36,7 +36,6 @@ class UserService {
     }
 
     public function addUser($name, $email, $password, $phone, $address, $type) {
-        // Gọi phương thức addUser từ UserDAO để thêm người dùng vào cơ sở dữ liệu
         return $this->userRepository->addUser($name, $email, $password, $phone, $address, $type);
     }
 
@@ -50,4 +49,13 @@ class UserService {
         return $userRepository->updatePassword($email, $hashedPassword);
     }
     
+    function validatePhoneNumber($phone) {
+        $pattern = '/^[0-9]{10}$/';
+
+        if (preg_match($pattern, $phone)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

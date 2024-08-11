@@ -26,7 +26,7 @@ body {
 
 .main-image img {
     width: 100%;
-    max-width: 600px;
+    width: 600px;
     /* Fixed width for main image */
     height: 400px;
     /* Fixed height for main image */
@@ -136,21 +136,51 @@ body {
 
 .button {
     padding: 10px 20px;
-    margin: 10px;
     border: none;
-    cursor: pointer;
     border-radius: 4px;
     font-size: 16px;
 }
 
-.button.primary {
-    background-color: #4CAF50;
-    color: #fff;
+.action-buttons .button.primary {
+    position: absolute;
+    bottom: 228px;
+    right: 510px;
+    width: 250px;
+    background-color: #343a40;
+    border-color: #343a40;
+    color: #ffffff;
 }
 
-.button.secondary {
-    background-color: #ccc;
-    color: #333;
+.action-buttons .button.primary:hover {
+    position: absolute;
+    bottom: 228px;
+    right: 510px;
+    width: 250px;
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.action-buttons .button.secondary {
+    position: absolute;
+    bottom: 228px;
+    right: 250px;
+    width: 250px;
+    background-color: #343a40;
+    border-color: #343a40;
+    color: #ffffff;
+}
+
+.action-buttons .button.secondary:hover {
+    position: absolute;
+    bottom: 228px;
+    right: 250px;
+    width: 250px;
+    background-color: #de1717c5;
+    border-color: #de1717c5;
+    color: #ffffff;
+    cursor: pointer;
 }
 
 /* Overlay */

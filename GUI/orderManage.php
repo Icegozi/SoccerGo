@@ -20,7 +20,7 @@ if(isset($_GET['id'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quản lý đơn hàng</title>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="css/orderManage.css?v=<?php echo time(); ?>">
@@ -79,8 +79,8 @@ if(isset($_GET['id'])){
                                     }
 
                                     echo "</td>";
-                                    echo "<td><a href='edit_order.php?id={$order['id']}'>Sửa</a></td>";
-                                    echo "<td><a href='orderManage.php?id={$order['id']}' onclick='return confirmDelete();'>Xóa</a></td>";
+                                    echo "<td><a href='edit_order.php?id={$order['id']}'><i class='fa-solid fa-gear'></i></a></td>";
+                                    echo "<td><a href='orderManage.php?id={$order['id']}' onclick='return confirmDelete();'><i class='fa-solid fa-trash-can'></i></a></td>";
                                     echo "</tr>";
                                 }
                                 ?>

@@ -75,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
             <div class="mb-3">
                 <label for="tenKhachHang" class="form-label">Tên Khách hàng</label><br>
-                <input type="text" class="form-control id=" tenKhachHang" name="tenKhachHang"
+                <input type="text" class="form-control" id=" tenKhachHang" name="tenKhachHang"
                     value="<?php echo $user['name']; ?>">
             </div>
 

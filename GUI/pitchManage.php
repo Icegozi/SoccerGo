@@ -15,6 +15,7 @@ ob_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soccer field management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="./css/pitchManage.css?v = <?php echo time(); ?>">
@@ -82,8 +83,8 @@ ob_start();
         if($_SERVER["REQUEST_METHOD"]=='POST')
          if ($showForm3): ?>
 
-        <div class="modal3 show">
-            <div class="modal-content3">
+        <div class="modal4">
+            <div class="modal-content4">
                 <?php
         if (isset($_POST['hidenId'])) {
             $result2 = checkPic($_POST['hidenId']);
@@ -120,9 +121,9 @@ ob_start();
                     <label for="pitchName2">Tên sân bóng:</label>
                     <input type="text" name="pitchName2"><br><br>
                     <label for="pitchTimeStart2">Thời gian bắt đầu:</label>
-                    <input type="time" name="pitchTimeStart2"><br><br>
+                    <input type="time" name="pitchTimeStart2" style="width: 284px;"><br><br>
                     <label for="pitchTimeEnd2">Thời gian kết thúc:</label>
-                    <input type="time" name="pitchTimeEnd2"><br><br>
+                    <input type="time" name="pitchTimeEnd2" style="width: 284px;"><br><br>
                     <label for="Description2">Mô tả:</label>
                     <input type="text" name="Description2"><br><br>
                     <label for="price_per_hour2">Giá sân trong 1 giờ:</label>
@@ -144,17 +145,17 @@ ob_start();
 
         <?php if ($showForm4): ?>
         <div class="modal2">
-            <div class="modal-content2">
+            <div class="modal-content3">
                 <form id="pitchForm4" action="pitchManage.php" method="post">
                     <label for="tenSanBong">Tên sân bóng:</label><br>
-                    <select name="tenSanBong" style="font-size: 15px; width: 500px; height: 35px">
+                    <select name="tenSanBong" style="font-size: 15px; width: 450px; height: 35px">
                         <?php while($row = $result3->fetch_assoc()): ?>
                         <option value="<?php echo $row['name']; ?>"><?php echo $row['name']; ?></option>
                         <?php endwhile; ?>
                     </select>
                     <br><br>
                     <label for="image">Liên kết hình ảnh</label><br>
-                    <input type="text" name="image" id="image" style="width: 500px;">
+                    <input type="text" name="image" id="image" style="width: 450px;">
                     <br><br>
                     <input name="add" type="submit" value="Thêm hình ảnh">
                     <input name="Thoat" type="submit" value="Thoát">
@@ -195,9 +196,9 @@ ob_start();
                     echo "<td>" . $row["pitch_type_id"] . "</td>";
                     echo "<td>" . $row["created_at"] . "</td>";
                     echo "<td>" . $row["updated_at"] . "</td>";
-                    echo "<td><form action='dashboard_admin.php?pg=pitchManage' method='post'><button type='submit' name ='Anh' ><img class='iconeye' src='./img/iconeye.png' alt=''></button>
+                    echo "<td><form action='dashboard_admin.php?pg=pitchManage' method='post'><button type='submit' name ='Anh' ><i class='fa-solid fa-eye'></i></button>
                     <input type='hidden' name='hidenId' value='". $row['id']."'></form></td>";
-                    echo "<td> <form action='dashboard_admin.php?pg=pitchManage' method='post'><button type='submit' name= 'Xoa' onclick='return confirmDelete();')'><img class='icontrash' src='./img/Trash.jpg' alt=''></button>
+                    echo "<td> <form action='dashboard_admin.php?pg=pitchManage' method='post'><button type='submit' name= 'Xoa' onclick='return confirmDelete();')'><i class='fa-solid fa-trash'></i></button>
                     <input type='hidden' name='hidenId' value='". $row['id']."'></form></td>";
                     echo "</tr>";
                 }
@@ -225,7 +226,7 @@ ob_start();
             checkUpdatePitch($_POST['pitchId2'] ,$_POST['pitchName2'], $_POST['pitchTimeStart2'], $_POST['pitchTimeEnd2'], $_POST['Description2'], $_POST['price_per_hour2'], 
             $_POST['price_per_peak_hour2'], $_POST['is_maintenance2'], $_POST['pitch_type_id2'], $updated_at);
             header("Location: dashboard_admin.php?pg=pitchManage");
-              exit();
+            exit();
         }
         if(isset($_POST['Xoa'])){
             $delid = $_POST['hidenId'];

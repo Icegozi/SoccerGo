@@ -19,6 +19,7 @@ $user = $userService->getUserById($_SESSION['user_id']);
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Sửa thông tin cá nhân</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/userEdit.css?v= <?php echo time(); ?>">
 </head>
@@ -37,14 +38,16 @@ $user = $userService->getUserById($_SESSION['user_id']);
                     value="<?php echo $user['name']; ?>">
             </div>
 
-            <div class="mb-3">
+            <div class="mb-3 position-relative">
                 <label for="matKhau" class="form-label">Mật khẩu</label><br>
                 <input type="password" class="form-control" id="matKhau" name="matKhau" value="">
+                <i class="fa-regular fa-eye position-absolute" id="ia" onclick="myFunction()"></i>
             </div>
 
-            <div class="mb-3">
+            <div class="mb-3 position-relative">
                 <label for="xacNhan" class="form-label">Xác nhận mật khẩu</label><br>
                 <input type="password" class="form-control" id="xacNhan" name="xacNhan" value="">
+                <i class="fa-regular fa-eye position-absolute" id="ia" onclick="myFunction1()"></i>
             </div>
 
             <div class="mb-3">
@@ -67,7 +70,31 @@ $user = $userService->getUserById($_SESSION['user_id']);
             <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
         </form>
     </div>
-    </main>
+
+    <script>
+    let temp = true;
+    let temp1 = true;
+
+    function myFunction() {
+        if (temp) {
+            document.getElementById('matKhau').type = "text";
+            temp = false;
+        } else {
+            document.getElementById('matKhau').type = "password";
+            temp = true;
+        }
+    }
+
+    function myFunction1() {
+        if (temp1) {
+            document.getElementById('xacNhan').type = "text";
+            temp1 = false;
+        } else {
+            document.getElementById('xacNhan').type = "password";
+            temp1 = true;
+        }
+    }
+    </script>
 </body>
 
 </html>
