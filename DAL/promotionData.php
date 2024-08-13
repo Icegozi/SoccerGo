@@ -43,26 +43,13 @@ class promotionDAL {
         try {
             $query = "INSERT INTO discounts (code, amount,usage_limit) VALUES (?, ?,?)";
             $stmt = $conn->prepare($query);
-
-            if ($stmt === false) {
-                throw new Exception('Invalid prepare statement: ' . $conn->error);
-            }
-
             $stmt->bind_param('sss', $makm, $muckm,$soluong);
             $result = $stmt->execute();
-
-            if ($result === false) {
-                throw new Exception('Execute error: ' . $stmt->error);
-            }
-
             $stmt->close();
             return true;
         } catch (Exception $e) {
-            echo "Error: " . $e->getMessage();
-            return false;
-        } finally {
-            $conn->close();
-        }
+        } 
+        $conn->close();
     }
 
     public function UpdatePromotionData($code, $muckm, $soluong) {

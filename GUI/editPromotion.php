@@ -23,19 +23,7 @@ if (!$promo) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $makm = $_POST['makm'];
-    $muckm = $_POST['muckm'];
-    $soluong=$_POST['soluong'];
-
-    $updated = $promotion->update($makm, $muckm, $soluong);
-
-    if ($updated) {
-        echo '<script>alert("Promotion updated successfully."); location.replace("promotionManage.php");</script>';
-        exit();
-    } else {
-        echo '<script>alert("Failed to update promotion."); location.replace("editPromotion.php?id=' . $id . '");</script>';
-        exit();
-    }
+    
 }
 
 ?>
@@ -60,11 +48,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <div class="form-group">
                     <label for="muckm">Mức Khuyến Mại</label><br>
-                    <input type="text" class="form-control" id="muckm" name="muckm" value="<?php echo htmlspecialchars($promo->muckm); ?>">
+                    <input type="text" class="form-control" id="muckm" name="muckm"
+                        value="<?php echo htmlspecialchars($promo->muckm); ?>">
                 </div>
                 <div class="form-group">
                     <label for="soluong">số lượng</label><br>
-                    <input type="text" class="form-control" id="soluong" name="soluong" value="<?php echo htmlspecialchars($promo->soluong); ?>">
+                    <input type="text" class="form-control" id="soluong" name="soluong"
+                        value="<?php echo htmlspecialchars($promo->soluong); ?>">
                 </div>
                 <button type="submit" class="btn">Update</button>
             </form>

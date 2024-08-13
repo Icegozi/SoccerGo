@@ -18,7 +18,7 @@
                 <li><a href="dashboard_admin.php?pg=pitchManage">Quản lý sân bóng</a></li>
                 <li><a href="dashboard_admin.php?pg=accountManage">Bảo chì tài khoản</a></li>
                 <li><a href="dashboard_admin.php?pg=summary">Quản lý đơn hàng</a></li>
-                <li><a href="dashboard_admin.php?pg=promotionManage">Bảo chì khuyến mại</a></li>
+                <li><a href="dashboard_admin.php?pg=promotionManage">Bảo chì khuyến mãi</a></li>
                 <li><a href="dashboard_admin.php?pg=logout">Đăng xuất</a></li>
             </ul>
         </div>
