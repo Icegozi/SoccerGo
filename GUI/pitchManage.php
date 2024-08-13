@@ -65,7 +65,10 @@ ob_start();
                     <label for="price_per_peak_hour">Giá sân lúc cao điểm:</label>
                     <input type="text" name="price_per_peak_hour"><br><br>
                     <label for="is_maintenance">Bảo trì:</label>
-                    <input type="text" name="is_maintenance"><br><br>
+                    <select name="is_maintenance" id="is_maintenance" style="width: 290px; height: 35px;">
+                        <option value="0">Đang hoạt động</option>
+                        <option value="1">Đang bảo trì</option>
+                    </select><br><br>
                     <label for="pitch_type_id">Mã loại sân:</label>
                     <input type="text" name="pitch_type_id"><br><br>
 
@@ -131,10 +134,12 @@ ob_start();
                     <label for="price_per_peak_hour2">Giá sân giờ cao điểm:</label>
                     <input type="text" name="price_per_peak_hour2"><br><br>
                     <label for="is_maintenance2">Bảo chì:</label>
-                    <input type="text" name="is_maintenance2"><br><br>
+                    <select name="is_maintenance2" id="is_maintenance2">
+                        <option value="0">Đang hoạt động</option>
+                        <option value="1">Đang bảo trì</option>
+                    </select><br><br>
                     <label for="pitch_type_id2">Mã loại sân:</label>
                     <input type="text" name="pitch_type_id2"><br><br>
-
                     <input name="SuaSanBong" type="submit" value="Cập nhật">
                     <input name="Thoat" type="submit" value="Thoát">
                 </form>
@@ -222,7 +227,7 @@ ob_start();
         }
          if(isset($_POST['SuaSanBong'])){
             
-            $updated_at= date('Y-m-d H:i:s'); 
+            $updated_at = date('Y-m-d H:i:s'); 
             checkUpdatePitch($_POST['pitchId2'] ,$_POST['pitchName2'], $_POST['pitchTimeStart2'], $_POST['pitchTimeEnd2'], $_POST['Description2'], $_POST['price_per_hour2'], 
             $_POST['price_per_peak_hour2'], $_POST['is_maintenance2'], $_POST['pitch_type_id2'], $updated_at);
             header("Location: dashboard_admin.php?pg=pitchManage");

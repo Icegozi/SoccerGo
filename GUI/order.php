@@ -39,7 +39,7 @@ include 'header.php';
         $ten_san = $name . " | " . $quantity . " người";
         $total = $data["total"];
         // Các thông tin chuyển khoản
-        $so_tien = $data["deposit"] . " - " . $total;
+        $so_tien = $data["deposit"];
         $note = $data["note"];
         $data_bank = getBill();
         ?>
@@ -58,7 +58,7 @@ include 'header.php';
             </div>
             <div class="info-box">
                 <h3>Thông tin chuyển</h3>
-                <p><strong>Số tiền:</strong> <?php echo $so_tien; ?></p>
+                <p><strong>Tiền cọc: </strong> <?php echo $so_tien; ?></p>
                 <p><strong>Nội dung:</strong> <?php echo $note; ?></p>
                 <p><strong>Số tài khoản:</strong> <?php echo $data_bank[0]["bank_number"]; ?></p>
                 <p><strong>Ngân hàng:</strong> <?php echo $data_bank[0]["name"]; ?></p>
