@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <header class="header_pitchManage">
         <div class="header_content">
             <img class="logo" src="./img/logocauthu.png" alt="">
-            <h2>Bảo chì khuyến mãi</h2>
+            <h2>Bảo trì khuyến mãi</h2>
         </div>
     </header>
 
