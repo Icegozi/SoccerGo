@@ -71,8 +71,6 @@ ob_start();
                     </select><br><br>
                     <label for="pitch_type_id">Mã loại sân:</label>
                     <input type="text" name="pitch_type_id"><br><br>
-
-
                     <input name="ThemSanBong" type="submit" value="Thêm sân bóng">
                     <input name="Thoat" type="submit" value="Thoát">
 

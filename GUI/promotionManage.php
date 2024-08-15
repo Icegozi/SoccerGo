@@ -84,6 +84,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             });
         });
     });
+
+    function confirmDelete() {
+        // Kiểm tra nếu nút "Xóa" được nhấn
+        if (document.activeElement.getAttribute('name') === 'xoa') {
+            // Hiển thị hộp thoại xác nhận
+            return confirm("Bạn có chắc chắn muốn xóa không?");
+        }
+        return true; // Cho phép gửi form nếu không phải nút "Xóa"
+    }
     </script>
 
 </head>
@@ -122,7 +131,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </tbody>
             </table>
         </div>
-        <form action="dashboard_admin.php?pg=promotionManage" method="post">
+        <form action="dashboard_admin.php?pg=promotionManage" method="post" onsubmit="return confirmDelete();">
             <div class="row mt-3">
                 <div class="col-md-6 d-flex flex-column justify-content-between">
                     <div>
@@ -151,6 +160,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     </div>
+
+
 </body>
 
 </html>
