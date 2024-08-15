@@ -263,8 +263,16 @@ ob_start();
         function confirmDelete() {
             return confirm('Bạn có chắc chắn muốn xóa sân bóng này?');
         }
-        </script>
 
+        var modal = document.querySelector('.modal4');
+        var modalContent = document.querySelector('.modal-content4');
+
+        modal.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+        </script>
     </body>
 
 </html>

@@ -99,4 +99,7 @@
         return removeOrderData($id);
     }
 
+    function getOrdersByUserIdd($user_id){
+        return getOrdersByUserIdnn($user_id);
+    }
     

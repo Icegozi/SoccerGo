@@ -86,7 +86,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     });
 
     function confirmDelete() {
-        // Kiểm tra nếu nút "Xóa" được nhấn
         if (document.activeElement.getAttribute('name') === 'xoa') {
             // Hiển thị hộp thoại xác nhận
             return confirm("Bạn có chắc chắn muốn xóa không?");

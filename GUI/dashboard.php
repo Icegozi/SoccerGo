@@ -24,6 +24,9 @@ if(isset($_GET['pg'])){
         case 'home':
             include 'home.php';
             break;
+        case 'summary':
+            include 'orderMember.php';
+            break;
         case 'logout': 
             session_destroy();
             header("Location: login.php");

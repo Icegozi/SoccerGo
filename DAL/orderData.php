@@ -172,3 +172,20 @@
         $conn->close();
         return false;
     }
+
+    function getOrdersByUserIdnn($userId)
+    {
+        $conn = getConnection();
+        $sql = "SELECT id, name, start_at, end_at, deposit, total, code, status, phone, email, football_pitch_id 
+                FROM orders 
+                WHERE user_id = $userId";
+        $result = $conn->query($sql);
+        $orders = array();
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $orders[] = $row;
+            }
+        }
+        $conn->close();
+        return $orders;
+    }
