@@ -14,7 +14,7 @@
      border-radius: 10px;
      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
      max-width: 650px;
-     height: 700px;
+     height: 730px;
 
  }
 
@@ -26,7 +26,7 @@
      width: 210px;
      position: fixed;
      left: 595px;
-     bottom: 130px;
+     bottom: 100px;
  }
 
  #huybo {
@@ -44,7 +44,7 @@
      border: 1px solid transparent;
      position: fixed;
      left: 855px;
-     bottom: 130px;
+     bottom: 100px;
  }
 
  #huybo:hover {
@@ -79,4 +79,16 @@
  input.form-control {
      padding-right: 35px;
      /* Tạo khoảng trống cho biểu tượng */
+ }
+
+ a {
+     color: #23272b;
+ }
+
+ a:hover {
+     color: #28a745;
+ }
+
+ a i {
+     width: 15px;
  }

@@ -28,6 +28,7 @@ if(isset($_GET['pg'])){
     <div class="container p-5 my-5 border">
 
         <form action="registerHandler.php" method="post">
+            <a href="login.php"><i class="fa-solid fa-arrow-left-long" style="font-size:25px"></i></a>
             <h2 class="form-title">Đăng kí</h2>
             <?php if ($error): ?>
             <p class="error"><?php echo $error; ?></p>
