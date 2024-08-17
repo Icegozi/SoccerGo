@@ -24,7 +24,7 @@
                 foreach ($codes as $c) {
                     if ($code == $c['code']) {
                         $codeValid = true;
-                        $amount = $total * (100 - $c['amount']) / 100;
+                        $amount = $total * ($c['amount'] / 100);
                         if ($amount > $c['usage_limit']) {
                             $total = $total - $c['usage_limit'];
                         } else {
@@ -34,7 +34,7 @@
                     }
                 }
             }
-
+            
             // Nếu mã giảm giá không hợp lệ, thông báo lỗi và thoát
             if (!$codeValid) {
                 echo "<script type='text/javascript'>alert('Mã giảm giá không hợp lệ');window.location.replace('dashboard.php?pg=home');</script>";
@@ -94,7 +94,7 @@
         return $temp;
     }
 
-    // Đổi tên hàm từ removeOrder() thành removeOrderService()
+    
     function removeOrderService($id) {
         return removeOrderData($id);
     }
@@ -102,4 +102,3 @@
     function getOrdersByUserIdd($user_id){
         return getOrdersByUserIdnn($user_id);
     }
-    

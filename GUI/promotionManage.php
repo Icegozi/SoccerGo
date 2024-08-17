@@ -112,8 +112,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <tr>
                         <th>#</th>
                         <th>Mã Khuyến Mại</th>
-                        <th>Mức Khuyến Mại</th>
-                        <th>Số lượng</th>
+                        <th>Mức Khuyến Mại (%)</th>
+                        <th>Giới hạn </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -149,7 +149,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <input type="text" class="form-control" placeholder="Mức khuyến mãi" name="muckm" required>
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text">Số lượng</span>
+                        <span class="input-group-text">Giới hạn</span>
                         <input type="text" class="form-control" placeholder="Số lượng" name="soluong" required>
                     </div>
                 </div>

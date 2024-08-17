@@ -40,12 +40,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo "<script type='text/javascript'>alert('Tên không được chứa ký tự đặc biệt');window.location.replace('pitchDetail.php');</script>";
             exit;
         }
-
         if (isset($_SESSION['user_id'])) {
             $user_id = $_SESSION['user_id'];
         } else {
             echo "<script type='text/javascript'>alert('Không có thông tin người đặt');window.location.replace('pitchDetail.php');</script>";
         }
+
         
         try {
             $re = createNewOrder($pitch_details_id, $user_id, $date, $start_time, $end_time, $namee, $sdt, $email, $price_perhour, $price_perpeak, $code);
