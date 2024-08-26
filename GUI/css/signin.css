@@ -24,9 +24,9 @@
 
  #gui {
      width: 210px;
-     position: fixed;
-     left: 595px;
-     bottom: 100px;
+     position: relative;
+     margin-left: 20px;
+     margin-top: 20px;
  }
 
  #huybo {
@@ -42,9 +42,9 @@
      font-weight: 400;
      line-height: 1.5;
      border: 1px solid transparent;
-     position: fixed;
-     left: 855px;
-     bottom: 100px;
+     position: relative;
+     margin-left: 40px;
+     margin-top: 20px;
  }
 
  #huybo:hover {

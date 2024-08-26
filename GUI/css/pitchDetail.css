@@ -143,8 +143,8 @@ body {
 
 .action-buttons .button.primary {
     position: absolute;
-    bottom: 228px;
-    right: 510px;
+    bottom: 120px;
+    right: 430px;
     width: 250px;
     background-color: #343a40;
     border-color: #343a40;
@@ -153,8 +153,8 @@ body {
 
 .action-buttons .button.primary:hover {
     position: absolute;
-    bottom: 228px;
-    right: 510px;
+    bottom: 120px;
+    right: 430px;
     width: 250px;
     background-color: #4CAF50;
     border-color: #4CAF50;
@@ -164,8 +164,8 @@ body {
 
 .action-buttons .button.secondary {
     position: absolute;
-    bottom: 228px;
-    right: 250px;
+    bottom: 120px;
+    right: 160px;
     width: 250px;
     background-color: #343a40;
     border-color: #343a40;
@@ -174,8 +174,8 @@ body {
 
 .action-buttons .button.secondary:hover {
     position: absolute;
-    bottom: 228px;
-    right: 250px;
+    bottom: 120px;
+    right: 160px;
     width: 250px;
     background-color: #de1717c5;
     border-color: #de1717c5;
