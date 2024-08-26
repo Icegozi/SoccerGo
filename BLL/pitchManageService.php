@@ -9,7 +9,7 @@
     }
     function checkAddingPitch( $name, $time_start, $time_end, $description, $price_per_hour, $price_per_peak_hour, $is_maintenance, $pitch_type_id, $created_at, $updated_at){
         $conn = getConnection();  
-        if(empty($name)||empty($time_start)||empty($time_end)||empty($description)||empty($price_per_hour)||empty($price_per_peak_hour)||empty($is_maintenance)||empty($pitch_type_id)){
+        if(empty($name)||empty($time_start)||empty($time_end)||empty($description)||empty($price_per_hour)||empty($price_per_peak_hour)||empty($pitch_type_id)){
             echo '<script type = "text/javascript"> alert("Hãy điển đầy đủ các trường thông tin"); location.replace("dashboard_admin.php?pg=pitchManage");</script>';
             exit();
         }

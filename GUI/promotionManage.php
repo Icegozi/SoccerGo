@@ -150,7 +150,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text">Giới hạn</span>
-                        <input type="text" class="form-control" placeholder="Số lượng" name="soluong" required>
+                        <input type="text" class="form-control" placeholder="Giới hạn" name="soluong" required>
                     </div>
                 </div>
 
